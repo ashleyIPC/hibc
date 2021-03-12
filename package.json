@@ -1,17 +1,22 @@
 {
-  "name": "jnj-lineapro-infinea",
-  "version": "1.0.0",
-  "description": "Infineags1hibc",
-  "cordova": {
-    "id": "cordova-plugin-infinea",
-    "platforms": [
-      "ios"
-    ]
+  "name": "npm-hibc-pkg",
+  "version": "1.0.7",
+  "description": "",
+  "main": "IPC-Infinea.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashleyIPC/hibc.git"
   },
   "keywords": [
-    "ecosystem:cordova",
-    "cordova-ios"
+    "hibc"
   ],
-  "author": "",
+  "author": "Ashley Lopez",
   "license": "ISC"
+  "bugs": {
+    "url": "https://github.com/ashleyIPC/hibc/issues"
+  },
+  "homepage": "https://github.com/ashleyIPC/hibc/blob/master/README.md"
 }
