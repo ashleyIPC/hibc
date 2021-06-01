@@ -1,4 +1,4 @@
-//
+///
 //  IPCInfinea.m
 //  Cordova Plugin - Johnson & Johnson
 //
@@ -7,6 +7,7 @@
 //
 
 #import "IPCInfinea.h"
+#import <WebKit/WebKit.h>
 
 @implementation Infinea
 
@@ -41,7 +42,11 @@
     
     NSString *func=[NSString stringWithFormat:@"%@(%@);",[cb valueForKey:@"barcodeStatusCallback"],state==CONN_CONNECTED?@"true":@"false"];
     
-    [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+  //  [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    if([[self webView]isKindOfClass:WKWebView.class])
+        [(WKWebView*)[self webView]evaluateJavaScript:func completionHandler:^(id result, NSError *error){}];
+    else
+        [(UIWebView*)[self webView] stringByEvaluatingJavaScriptFromString:func];
     
 }
 
@@ -105,21 +110,33 @@
     }
     
     NSString *func=[NSString stringWithFormat:@"%@(\"%@\",%d,\"%@\");",[cb valueForKey:@"barcodeDataCallback"],final,type,[sdk barcodeType2Text:type]];
-    [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+   // [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    if([[self webView]isKindOfClass:WKWebView.class])
+        [(WKWebView*)[self webView]evaluateJavaScript:func completionHandler:^(id result, NSError *error){}];
+    else
+        [(UIWebView*)[self webView] stringByEvaluatingJavaScriptFromString:func];
 }
 
 - (void)deviceButtonPressed: (int)which
 {
     NSString *func=[NSString stringWithFormat:@"%@(%d,%@);",[cb valueForKey:@"buttonPressedCallback"],which, @"true"];
     NSLog(@"%@",func);
-    [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    //[(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    if([[self webView]isKindOfClass:WKWebView.class])
+        [(WKWebView*)[self webView]evaluateJavaScript:func completionHandler:^(id result, NSError *error){}];
+    else
+        [(UIWebView*)[self webView] stringByEvaluatingJavaScriptFromString:func];
 }
 
 - (void)deviceButtonReleased: (int)which
 {
     NSString *func=[NSString stringWithFormat:@"%@(%d,%@);",[cb valueForKey:@"buttonPressedCallback"],which, @"false"];
     
-    [(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    //[(UIWebView*)super.webView stringByEvaluatingJavaScriptFromString:func];
+    if([[self webView]isKindOfClass:WKWebView.class])
+        [(WKWebView*)[self webView]evaluateJavaScript:func completionHandler:^(id result, NSError *error){}];
+    else
+        [(UIWebView*)[self webView] stringByEvaluatingJavaScriptFromString:func];
 }
 
 /* End - Delegates */

@@ -1,4 +1,4 @@
-var exec = require('cordova/exec'),
+exec = require('cordova/exec'),
 cordova = require('cordova');
 
 var Infinea = {
@@ -250,3 +250,4 @@ var Infinea = {
 };
 
 module.exports = Infinea;
+

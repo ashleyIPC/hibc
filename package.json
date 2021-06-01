@@ -1,8 +1,8 @@
 {
   "name": "npm-hibc-pkg",
-  "version": "1.0.7",
+  "version": "1.0.13",
   "description": "",
-  "main": "IPC-Infinea.js",
+  "main": "www/IPC-Infinea.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,7 @@
     "hibc"
   ],
   "author": "Ashley Lopez",
-  "license": "ISC"
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/ashleyIPC/hibc/issues"
   },
